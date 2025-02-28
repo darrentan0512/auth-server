@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
-    "auth-server/handlers"
+	"auth-server/handlers"
 	"github.com/joho/godotenv"
 )
 
