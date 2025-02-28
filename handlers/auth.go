@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"net/http"
+	"encoding/json"
 	"golang.org/x/crypto/bcrypt"
-	"github.com/gorilla/mux"
-	"myauthserver/models"
-	"myauthserver/utils"
+	"auth-server/models"
+	"auth-server/utils"
 )
 
 var users = make(map[string]models.User)
@@ -14,7 +14,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
-		http.Error(w "Invalid request payload", http.StatusBadRequest)
+		http.Error(w, "Invalid request payload", http.StatusBadRequest)
 		return
 	}
 
