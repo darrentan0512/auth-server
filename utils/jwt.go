@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"time",
+	"time"
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -30,11 +30,11 @@ func ValidateToken(tokenString string) (*Claims, error) {
 
 	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
 		return jwtKey, nil
-	}
+	})
 
 	if err != nil {
 		return nil, err
-	})
+	}
 
 	if !token.Valid {
 		return nil, jwt.ErrSignatureInvalid
